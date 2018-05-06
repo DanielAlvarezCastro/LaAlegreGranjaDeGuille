@@ -17,6 +17,11 @@
 
 	<script type="text/javascript">
 		$(document).ready(function(){
+            $("body").click(function(){
+                var txt1 = '<a id="boton" class="parrafo col-md-offset-5 col-md-2" href="nivel1.html">Jugar</a>'; 
+				$("#button").append(txt1);
+				$("#boton").animate({opacity:'0.75'});
+            });
 			setTimeout(function(){
 				$("#texto").animate({opacity:'0.6'});
 			},1000);
