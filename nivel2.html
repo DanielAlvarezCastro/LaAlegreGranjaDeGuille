@@ -631,7 +631,7 @@
                     $("#mensaje").html("");
                 }
             }, 10);
-            timer=setInterval(function(){
+            timer1=setInterval(function(){
                 tiempo++;
                 dañaPlantas();
                 
@@ -639,7 +639,7 @@
                 
             },1000);
         
-             timer=setInterval(function(){
+             timer2=setInterval(function(){
                 tiempo2++;
                 $("#dia").html(tiempo2);
                 
@@ -1086,7 +1086,7 @@
                                             location.reload();
                                         });
                                         $("#noReiniciar").click(function(){
-                                            //location.href="nivel2.html";
+                                            location.href="seleccionJuego.html";
                         
                 });
                                     },500);
@@ -1109,16 +1109,16 @@
                     mensaje="Vida: "+plantas[num][11]+"<br>";  
                     switch(plantas[num][3]){
                         case 0:
-                            mensaje+="Estado: Recien plantado";
+                            mensaje+="Estado: Recien Plantado";
                             break;
                         case 1:
-                            mensaje+="Estado: Primeras hojitas";
+                            mensaje+="Estado: Planta Joven";
                             break;
                         case 2:
-                            mensaje+="Estado: To fuerte";
+                            mensaje+="Estado: Planta Adulta";
                             break;
                         case 3:
-                            mensaje+="Estado: To viejo";
+                            mensaje+="Estado: Planta Anciana";
                             break;
                     }
                     mensaje+="<br>";

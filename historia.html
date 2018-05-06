@@ -1,0 +1,105 @@
+<html>
+
+<meta charset="utf-8">
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   
+    <title>La alegre granja de Guille</title>
+
+    <link rel="stylesheet" type="text/css" href="historia.css">
+
+<script type="text/javascript">
+		$(document).ready(function(){
+			setTimeout(function(){
+				$("#texto0").animate({opacity:'0.6'});
+			},1000);
+			setTimeout(function(){
+				$("#texto2").animate({opacity:'0.6'});
+			},4000);
+			setTimeout(function(){
+				$("#texto3").animate({opacity:'0.6'});
+			},9000);
+			setTimeout(function(){
+				$("#texto4").animate({opacity:'0.6'});
+			},13000);
+			setTimeout(function(){
+				$("#texto5").animate({opacity:'0.6'});
+			},21000);
+			setTimeout(function(){
+				$("#texto6").animate({opacity:'0.6'});
+			},26000);
+
+			setTimeout(function(){
+				$("#texto0").animate({opacity:'0'});
+			},21000);
+			setTimeout(function(){
+				$("#texto2").animate({opacity:'0'});
+			},26000);
+			setTimeout(function(){
+				$("#texto3").animate({opacity:'0'});
+			},29000);
+			setTimeout(function(){
+				$("#texto4").animate({opacity:'0'});
+			},32000);
+			setTimeout(function(){
+				$("#texto5").animate({opacity:'0'});
+			},35000);
+			setTimeout(function(){
+				$("#texto6").animate({opacity:'0'});
+			},38000);
+
+			setTimeout(function(){
+				var txt1 = '<a id="boton" class="parrafo col-md-offset-5 col-md-2" href="nivel1.html">Jugar</a>'; 
+				$("#button").append(txt1);
+				$("#boton").animate({opacity:'0.75'});
+			},29000);
+		});
+	</script>
+
+</head>
+<body>
+<div id="container" class="container-fluid">
+		<div class="row">
+			<div id="texto0" class="parrafo col-md-offset-2 col-md-8">
+				Año 2050.
+			</div>
+		</div>
+		<div class="row">
+			<div id= "texto2" class="parrafo col-md-offset-2 col-md-8">
+				El mundo se encuentra sumido en un conflicto a escala internacional sin precedentes. ¿El detonante? La escasez de alimento provocada por la sobrepoblación humana.
+			</div>
+		</div>
+		<div class="row">
+			<div id= "texto3" class="parrafo col-md-offset-2 col-md-8">
+				No obstante, el bloque capitalista ha conseguido desarrollar granjas experimentales capaces de producir grandes cantidades de alimento.
+			</div>
+		</div>
+		<div class="row">
+			<div id= "texto4" class="parrafo col-md-offset-2 col-md-8">
+				Por desgracia para tu pueblo, el bloque comunista ha creado un arma capaz de arrasar hasta los cimientos todo cultivo que encuentre a su paso. El general Mijaíl Pacios posee un ejército de insectos modificados genéticamente, formando la mayor plaga jamás conocida en la historia del hombre.
+			</div>
+		</div>
+		<div class="row">
+			<div id= "texto5" class="parrafo col-md-offset-2 col-md-8">
+				Pero no todo está perdido. Los capitalistas han conseguido decodificar el ADN de varios de estos insectos, logrando crear una mutación capaz de hacerles frente.
+			</div>
+		</div>
+		<div class="row">
+			<div id= "texto6" class="parrafo col-md-offset-2 col-md-8">
+				Tu deber como granjero es proteger tu granja del ataque de la plaga que se está extendiendo por Occidente, con la ayuda de los insectos mutados. Alimenta a tu pueblo, y defiende tus cultivos a toda costa.
+			</div>
+		</div>
+		<div id="button" class="row">
+		</div>
+	</div>
+</body>
+</html>

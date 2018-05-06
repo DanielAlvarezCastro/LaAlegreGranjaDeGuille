@@ -1,0 +1,94 @@
+<html>
+<meta charset="utf-8">
+<head>
+
+	<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<title>La alegre granja de Guille</title>
+
+	<link rel="stylesheet" type="text/css" href="historia.css">
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			setTimeout(function(){
+				$("#texto").animate({opacity:'0.6'});
+			},1000);
+			setTimeout(function(){
+				$("#texto2").animate({opacity:'0.6'});
+			},4000);
+			setTimeout(function(){
+				$("#texto3").animate({opacity:'0.6'});
+			},7000);
+			setTimeout(function(){
+				$("#texto4").animate({opacity:'0.6'});
+			},10000);
+
+			setTimeout(function(){
+				$("#texto").animate({opacity:'0'});
+			},11500);
+			setTimeout(function(){
+				$("#texto1").animate({opacity:'0'});
+			},13000);
+			setTimeout(function(){
+				$("#texto2").animate({opacity:'0'});
+			},14500);
+			setTimeout(function(){
+				$("#texto3").animate({opacity:'0'});
+			},16000);
+			setTimeout(function(){
+				$("#texto4").animate({opacity:'0'});
+			},17500);
+			setTimeout(function(){
+				$("#oveja").animate({opacity:'0'});
+			},18500);
+
+			setTimeout(function(){
+				var txt1 = '<a id="boton" class="parrafo col-md-offset-5 col-md-2" href="nivel2.html">Siguiente nivel</a>'; 
+				$("#button").append(txt1);
+				$("#boton").animate({opacity:'0.75'});
+			},18500);
+		});
+	</script>
+
+</head>
+<body>
+	<div id="container" class="container-fluid">
+		<div class="row">
+			<img id="oveja" class="col-md-offset-5 col-md-2" src="sheep kitchen.gif">
+		</div>
+		<div class="row">
+			<div id="texto" class="parrafo col-md-offset-2 col-md-8">
+				Enhorabuena, granjero. Has conseguido recoger suficiente alimento como para sostener a gran parte de la población en la que vives. 
+			</div>
+		</div>
+		<div class="row">
+			<div id= "texto2" class="parrafo col-md-offset-2 col-md-8">
+				Pero esta pequeña victoria no significa nada mientras que haya personas muriendo de inanición en nuestra gran nación.
+			</div>
+		</div>
+		<div class="row">
+			<div id= "texto3" class="parrafo col-md-offset-2 col-md-8">
+				Es por ello que se te han confiado unas instalaciones más desarrolladas. Esto significa que tendrás a tu alcance mejoras que hasta entonces se te habían sido restringidas.
+			</div>
+		</div>
+		<div class="row">
+			<div id= "texto4" class="parrafo col-md-offset-2 col-md-8">
+				Confiamos en tu capacidad para el trabajo, granjero. Buena suerte, y no nos falles.
+			</div>
+		</div>
+		<div id="button" class="row">
+			<!-- <a id="boton" class="parrafo col-md-offset-5 col-md-2" href="index.html">
+				Siguiente nivel
+			</a> -->
+		</div>
+	</div>
+</body>
+</html>

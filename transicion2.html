@@ -1,0 +1,101 @@
+<meta charset="utf-8">
+<head>
+
+	<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<title>La alegre granja de Guille</title>
+
+	<link rel="stylesheet" type="text/css" href="historia.css">
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			setTimeout(function(){
+				$("#texto").animate({opacity:'0.6'});
+			},1000);
+			setTimeout(function(){
+				$("#texto2").animate({opacity:'0.6'});
+			},4000);
+			setTimeout(function(){
+				$("#texto3").animate({opacity:'0.6'});
+			},7000);
+			setTimeout(function(){
+				$("#texto4").animate({opacity:'0.6'});
+			},10000);
+			setTimeout(function(){
+			$("#texto5").animate({opacity:'0.6'});
+			},13000);
+
+			setTimeout(function(){
+				$("#texto").animate({opacity:'0'});
+			},11500);
+			setTimeout(function(){
+				$("#texto1").animate({opacity:'0'});
+			},13000);
+			setTimeout(function(){
+				$("#texto2").animate({opacity:'0'});
+			},14500);
+			setTimeout(function(){
+				$("#texto3").animate({opacity:'0'});
+			},16000);
+			setTimeout(function(){
+				$("#texto4").animate({opacity:'0'});
+			},17500);
+			setTimeout(function(){
+				$("#texto5").animate({opacity:'0'});
+			},19000);
+			setTimeout(function(){
+				$("#oveja").animate({opacity:'0'});
+			},20500);
+
+			setTimeout(function(){
+				var txt1 = '<a id="boton" class="parrafo col-md-offset-5 col-md-2" href="nivel3.html">Siguiente nivel</a>'; 
+				$("#button").append(txt1);
+				$("#boton").animate({opacity:'0.75'});
+			},20500);
+		});
+	</script>
+
+</head>
+<body>
+	<div id="container" class="container-fluid">
+		<div class="row">
+			<img id="oveja" class="col-md-offset-5 col-md-2" src="sheep kitchen.gif">
+		</div>
+		<div class="row">
+			<div id="texto" class="parrafo col-md-offset-2 col-md-8">
+				Lo has vuelto a conseguir, granjero. Nos agrada saber que confiarte una granja más compleja fue una buena decisión.
+			</div>
+		</div>
+		<div class="row">
+			<div id= "texto2" class="parrafo col-md-offset-2 col-md-8">
+				Debido al éxito conseguido en la última defensa de la granja, nos complace anunciarte que has sido seleccionado para una misión de suma importancia.
+			</div>
+		</div>
+		<div class="row">
+			<div id= "texto3" class="parrafo col-md-offset-2 col-md-8">
+				Recientemente hemos descubierto una nueva especie de vegetal, capaz de producir mucho más alimento que los hasta ahora conocidos. 
+			</div>
+		</div>
+		<div class="row">
+			<div id= "texto4" class="parrafo col-md-offset-2 col-md-8">
+				Tu misión será vigilar la nueva especie y defenderla de todo peligro mientras conseguimos más datos acerca de su naturaleza.
+			</div>
+		</div>
+		<div class="row">
+			<div id= "texto5" class="parrafo col-md-offset-2 col-md-8">
+				Confíamos en que harás un buen papel. Buena suerte, y no nos falles.
+			</div>
+		</div>
+		<div id="button" class="row">
+		</div>
+	</div>
+</body>
+</html>
