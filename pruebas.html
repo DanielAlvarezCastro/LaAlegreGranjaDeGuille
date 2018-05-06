@@ -1,0 +1,400 @@
+<html>
+<head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            alert('asd');
+            
+            //Variables
+            planta1Precio=50;
+            planta1TiempoDeVida=20;
+            planta1CrecimientoGrande=20;
+            planta1CrecimientoMediano=10;
+            planta1TiempoRiego= 100;
+            planta1Vida = 50;
+            planta1BichoAtaque= "Pulgon"
+            
+            planta2Precio=25;
+            planta2TiempoDeVida=400;
+            plata2Bicho = "Mariquita";
+            planta2CrecimientoGrande=2;
+            planta2CrecimientoMediano=1;
+            planta2TiempoRiego= 100;
+            planta2Vida = 50;
+            
+            
+            
+            
+            pulgonTiempoDeAtaque= 20;
+            //tiempo de juego
+            tiempo=0;
+            tiempo++;
+            
+
+            //plantas en el tablero
+            plantas = new Array();
+            
+            plantas[0]=0;
+            plantas[1]=0;
+            plantas[2]=0;
+            plantas[3]=0;
+            
+            dinero=100;
+            
+            bichos = new Array();
+            bichos[0] =0; //Mariquitas
+            
+            nuevaPlanta(2, 1, planta1TiempoDeVida, 0, planta1TiempoRiego, planta1Vida);
+            //empiezaAtaque(2,"Come Mierdas", 10);
+            $("#casilla1").click(function(){
+                clearInterval(timer);
+                
+            });
+            buclePrincipal=setInterval(function(){
+                
+                compruebaCrecimiento();
+                compruebaAtaques();
+                comprobarEdad();
+            }, 10);
+            timer=setInterval(function(){
+                tiempo++;
+                $("#casilla1").html(tiempo);
+                dañaPlantas();
+                aumentaContadores();
+                
+            },1000);
+            
+            
+            function nuevaPlanta(numMaceta, tipoPlanta, tiempoDeVida,bichoQueDa, tiempoDeRiego,vida)
+            {
+                plantas[numMaceta]=new Array();
+                plantas[numMaceta][0]=tipoPlanta;
+                plantas[numMaceta][1]=tiempoDeVida;
+                plantas[numMaceta][2]=tiempo;
+                plantas[numMaceta][3]=0;
+                plantas[numMaceta][4]=0;
+                plantas[numMaceta][5]=bichoQueDa;
+                plantas[numMaceta][6]=0;
+                plantas[numMaceta][7]=false;
+                plantas[numMaceta][8]=-1;
+                plantas[numMaceta][9]=-1;
+                plantas[numMaceta][10]= tiempo+tiempoDeRiego;
+                plantas[numMaceta][11]= vida;
+                plantas[numMaceta][12]= 0;
+                plantas[numMaceta][13]= 0;
+            }
+            
+            function empiezaAtaque(maceta, tipoDeBicho, tiempoDeAtaque)
+            {
+                plantas[maceta][7]=true;
+                plantas[maceta][8]=tipoDeBicho;
+                plantas[maceta][9]=tiempo+tiempoDeAtaque;
+            }
+            
+            function vivo(maceta)
+            {
+                if(plantas[maceta][3]==-1)
+                {
+                    return false;
+                }
+                else {return true;}
+            }
+            
+            function maduro(maceta)
+            {
+                if(plantas[maceta][3]==2)
+                {
+                    return true;
+                }
+                else {return false;}
+            }
+            
+            
+            function compruebaCrecimiento()
+            {
+                for(i=0; i< plantas.length; i++)
+                {
+                    if(vivo(i)){
+                        
+                    
+                        if(tiempo-plantas[i][2] >= plantas[i][1]/4)
+                        {
+                            plantas[i][3]=1;
+                            //Cambio de sprite
+                        }
+                        if(tiempo-plantas[i][2] >= plantas[i][1]/2)
+                        {
+                           plantas[i][3]=2;
+                            //Cambio de sprite 
+                        }
+                        if(tiempo - plantas[i][2] >= plantas[i][1]*0.9)
+                        {
+                            plantas[i][3]=3;
+                        }
+
+                      
+                    }
+                }
+            }
+            
+            function crecimientoGrande(maceta)
+            {
+                switch(plantas[maceta][0])
+                {
+                    case 1: 
+                    {
+                    plantas[maceta][4]+=planta1CrecimientoGrande;
+                    break;
+                    }
+                    case 2: 
+                    {
+                    plantas[maceta][4]+=planta2CrecimientoGrande;
+                    break;
+                    }
+                    
+                }
+            }
+            
+            function crecimientoMediano(maceta)
+            {
+                switch(plantas[maceta][0])
+                {
+                    case 1: 
+                    {
+                    plantas[maceta][4]+=planta1CrecimientoMediano;
+                    break;
+                    }
+                    case 2: 
+                    {
+                    plantas[maceta][4]+=planta2CrecimientoMediano;
+                    break;
+                    }
+                }
+            }
+            
+            function compruebaAtaques()
+            {
+                for(i=0; i< plantas.length; i++)
+                {
+                    if(vivo(i) && plantas[i][7])
+                    {
+                        
+                        if(tiempo>=plantas[i][9])
+                        {
+                            eliminaPlanta(i);
+                        }
+                    }
+                }
+            }
+            
+            function compruebaVida()
+            {
+                for(i=0; i< plantas.length; i++)
+                {
+                    if(vivo(i) && plantas[i][11]==0)
+                    {
+                       plantas[i][3]=-1;
+                        //sprite de muerte
+                    }
+                }
+            }
+            
+            function dañaPlantas()
+            {
+                for(i=0; i< plantas.length; i++)
+                {
+                    if(vivo(i) && plantas[i][7])
+                    {
+                       plantas[i][11]--;
+                    }
+                }
+                compruebaVida();
+            }
+            
+            function aumentaContadores()
+            {
+                for(i=0; i< plantas.length; i++)
+                {
+                    if(vivo(i) && plantas[i][3]>=1 && plantas[i][3]<=3)
+                    {
+                        plantas[i][12]++;
+                        plantas[i][13]++;
+                    }
+                    if(plantas[i][3]==1 && plantas[i][13] >= (plantas[i][1]/4)/3 )
+                    {
+                        crecimientoGrande(i);
+                        plantas[i][13]=0;
+                    }
+
+                    else if(plantas[i][3]==2 && plantas[i][13] >= (plantas[i][1]/4)/3)
+                    {
+                        crecimientoMediano(i);
+                        plantas[i][13]=0;
+                    }
+                    
+                    if(plantas[i][3]>=1 && plantas[i][3]<=3)
+                    {
+                        if(plantas[i][12] >= plantas[i][1]/5)
+                        {
+                            plantas[i][12]=0;
+                            decideAtaque(i);
+
+                        }
+                    }
+                }
+            }
+            
+            function decideAtaque(maceta)
+            {
+                switch(plantas[maceta][0])
+                {
+                    case 1:
+                        empiezaAtaque(maceta, planta1BichoAtaque, consultaTiempoAtaque(planta1BichoAtaque));
+                        break;
+                }
+            }
+            
+            function consultaTiempoAtaque(tipoBicho)
+            {
+                switch(tipoBicho)
+                {
+                    case "Pulgon":
+                        return pulgonTiempoDeAtaque;
+                        break;
+                }
+            }
+            function eliminaPlanta(numMaceta)
+            {
+                plantas[numMaceta]= 0;
+                /*plantas[numMaceta][0]= null;
+                plantas[numMaceta][1]= null;
+                plantas[numMaceta][2]= null;
+                plantas[numMaceta][3]= null;
+                plantas[numMaceta][4]= null;
+                plantas[numMaceta][5]= null;
+                plantas[numMaceta][6]= null;
+                plantas[numMaceta][7]= null;
+                plantas[numMaceta][8]= null;
+                plantas[numMaceta][9]= null;
+                plantas[numMaceta][10]= null;*/
+                //eliminar el sprite (poner sprite de que no hay planta)
+            }
+             function cosechaDineroyBichos(numMaceta){
+                if (plantas[numMaceta][4] == 0){
+                    sumaBicho(plantas[numMaceta][5], plantas[numMaceta][6]);
+                    //añade bichos
+                }
+                else {
+                    dinero = dinero + plantas[numMaceta][4];
+                }
+                    eliminaPlanta(numMaceta);
+                 // la podemos eliminar aqui o eliminar fuera de la funcion
+            }
+            
+            function hayPlanta(numMaceta){
+                if (plantas[numMaceta][0] == null){
+                    return false;
+                }
+                return true;
+            }
+            
+            function compruebaRiego(){
+                for(i=0; i < plantas.length; i++) {
+                    if (plantas[i][10] - tiempo == 20){
+                        alert('ee riega loco');
+                    } 
+                    if (plantas[i][10] - tiempo <= 0){
+                        alert('se muere la planta')
+                        //¿llamamos a eliminar planta?
+                    }
+                }
+                
+            }
+            
+            function riega(maceta)
+            {
+                if(plantas[maceta] !=0)
+                {
+                    plantas[maceta][10]=tiempo+consultaTiempoRiego(plantas[maceta][0]);
+                }
+            }
+            function consultaTiempoRiego(tipoPlanta)
+            {
+                switch(tipoPlanta)
+                {
+                    case 1:
+                        return planta1TiempoRiego;
+                        break;
+                }
+            }
+            
+            function restaBicho(bicho)
+            {
+                switch(bicho)
+                {
+                    case "Mariquita":
+                        bichos[0]--;
+                        break;
+                }
+            }
+            function sumaBicho(bicho, cantidad)
+            {
+                switch(bicho)
+                {
+                    case "Mariquita":
+                        bichos[0]+=cantidad;;
+                        break;
+                }
+            }
+            function defiendeAtaque(bichoDefensor, maceta)
+            {
+                restaBicho(bichoDefensor);
+                if(planta[maceta][7])
+                {
+                    if(resuelveAtaques(planta[maceta][8], bichoDefensor))
+                    {
+                        plantas[maceta][7]= false;
+                        plantas[maceta][8]= -1;
+                        plantas[maceta][9]= -1;
+                        //cosas de sprites de los atacantes
+                    }
+                }
+            }
+            
+            function resuelveAtaques(bichoAtacante, bichoDefensor)
+            {
+                switch(bichoDefensor)
+                {
+                    case "Mariquita":
+                    {
+                        if(bichoAtacante=="Pulgon")
+                        {
+                            return true;
+                            break;
+                        }
+                    }
+                        
+                }
+                return false;
+            }
+            
+            function comprobarEdad()
+            {
+                for(i=0; i< plantas.length; i++)
+                {
+                    if(vivo(i) && tiempo-plantas[i][2]>= plantas[i][1])
+                    {
+                        eliminaPlanta(i);
+                    }
+                }
+            }
+        
+                
+        });
+    </script>
+    </head>
+    <body>
+        <div id="casilla1"></div>
+    </body>
+</html>

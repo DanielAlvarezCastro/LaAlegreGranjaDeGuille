@@ -1,0 +1,1310 @@
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+    <style>
+        body{
+            cursor: pointer;
+            background-image: url(fondo.gif);
+            background-repeat: no-repeat; 
+            background-size:cover;
+            
+        }
+        .casillas{
+            background-image: url(huerto.png);
+            background-repeat: no-repeat; 
+            background-size:contain;
+            width: 80px;
+            float:left;
+            height: 80px;
+            
+        }
+        #terreno{
+            position: relative;
+            height: auto;
+        }
+        #gatoZone{
+            height: 100%;
+        }
+        #menuZone{
+            padding: 0px;
+            height: 100%;
+           
+        }
+        #metaMenu{
+            position: relative;
+        }
+        #pestana{
+            font-family: 'Cabin Sketch', cursive;
+            border: 1px solid black;
+            background-image: url(fondoFlor2.png);
+            background-repeat: repeat; 
+            background-size:auto;
+            background-color:black;
+            width: 12%;
+            height: 100px;
+            float:left;
+            position: relative;
+            text-align: center;
+            font-weight: bolder;
+            font-size: 15px;
+            padding-top: 5px;
+        }
+        #menu{
+            border: 1px solid black;
+            background-image: url(fondoFlor2.png);
+            background-repeat: repeat; 
+            background-size:auto;
+            height: 100%;
+            width: 88%;
+            float:left;
+        }
+        #submenu{
+            font-family: 'Cabin Sketch', cursive;
+            
+            font-size: 25px;
+            font-weight: bold;
+            text-align:center;
+            height: 50px;
+            width: 100%;
+            float:left;
+        }
+        #submenu1{
+            font-family: 'Cabin Sketch', cursive;
+            border: 1px solid black;
+            height: 100%;
+            background-color: white;
+            width: 50%;
+            float:left;
+            text-align: center; 
+        }
+        #submenu2{
+            font-family: 'Cabin Sketch', cursive;
+            height: 100%;
+            background-color: white;
+            width: 50%;
+            float:left;
+            text-align: center; 
+        }
+        .plantas{
+            font-family: 'Cabin Sketch', cursive;
+            text-align: center;
+            font-weight: bold;
+            font-size:20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            opacity: 0.9;
+            margin-left: 20px;
+            margin-top: 20px;
+            padding-top:10px;
+            height: 150px;
+            width: 100px;
+            background-color: whitesmoke;
+            float:left;
+        }
+        #papelera{
+            height: 150px;
+            width: 100px;
+            position: absolute;
+            left: 0px;
+            bottom: 10px;
+        }
+        #regadera{
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            left: 70px;
+            top:400px;
+        }
+        #poda{
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            left: 150px;
+            
+        }
+        #info{
+            font-family: 'Cabin Sketch', cursive;
+            font-size: 40px;
+            text-align: center;
+            border-radius: 25px;
+            border:1px solid white;
+            height: 50px;
+            width: 250px;
+            background-color: #ff8533;
+            position: relative;
+            float: right;
+            margin-top: 10px;   
+        }
+        .main{
+          width:50px;
+          height:50px;
+          border:1px solid white;
+          position:relative;
+          top:0; bottom:0; left:0;right:0;
+          
+          border-radius:50%; 
+        }
+        .circle{
+          width:10px;
+          height:10px;
+          background:white;
+          border-radius:50%;
+          position:relative;
+          overflow:hidden;
+          top:20px;left: 20px;
+          animation: circle 60s linear infinite;
+        }
+        #dia{
+            position: relative;
+            float: right;
+            width:50px;
+            height:50px;
+            /*background:black;*/
+            opacity= 0.5;
+            text-align: center;
+            /*padding-top: 15px;*/
+        }
+        #ciclo{
+            position: relative;
+            left: 50px;
+            float: right;
+             width:50px;
+            height:50px;
+        }
+        #dinero{
+             position: relative;
+            left: 10px;
+            float: left;
+             width:50px;
+            height:50px;
+        }
+        #mensaje{
+            font-family: 'Cabin Sketch', cursive;
+            font-size: 20px;
+            background-image: url(bocadillo.png);
+            background-repeat: no-repeat; 
+            background-size:contain;
+            position: relative;
+            padding-left: 20px;
+            padding-top: 20px;
+            width:250px;
+            height:350px;
+            font-weight: bolder;
+        }
+        .alertas{
+            position: relative;
+            width:120px;
+            height:50px;
+        }
+        .alertaBicho{
+            background-image: url(ataque.png);
+            background-repeat: no-repeat; 
+            background-size:contain;
+            height: 100%;
+        }
+        .alertaAgua{
+            background-image: url(agua.png);
+            background-repeat: no-repeat; 
+            background-size:contain;
+            height: 100%;
+        }
+        #gato{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+        .imgHuerto{
+            width: 100%;
+        }
+        .posicionP{
+            position: relative;
+            bottom:30px;
+            right: 15px;
+            z-index: 3;
+        }
+        p:hover{
+            color:darkred;
+        }
+        @keyframes circle{
+          0%{
+            transform:rotate(0deg)
+                      translate(-25px)
+                      rotate(0deg);
+
+          }
+          10%{
+                background:white;
+          }
+            50%{
+                background:yellow;
+          } 
+            80%{
+                background:red;
+            }
+            90%{
+                background:white;
+            }
+          100%{
+            transform:rotate(360deg)
+                      translate(-25px)
+                      rotate(-360deg);
+              background:white;
+          }
+        }
+        
+    </style>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            ////////////////////////////////////
+            ////////////////////
+            dineroNecesario=1500;
+            tiempoMaximo=60*10;
+            
+            planta1Precio=50;
+            planta1TiempoDeVida=60;
+            planta1CrecimientoGrande=15;
+            planta1CrecimientoMediano=10;
+            planta1TiempoRiego= 40;
+            planta1Vida = 15;
+            planta1BichoAtaque= "Pulgon"
+            
+            planta2Precio=50;
+            planta2TiempoDeVida=50;
+            plata2Bicho = "Mariquita";
+            planta2CrecimientoGrande=0;
+            planta2CrecimientoMediano=2;
+            planta2TiempoRiego= 50;
+            planta2Vida = 1;
+            
+            planta3Precio=100;
+            planta3TiempoDeVida=60;
+            plata3Bicho = "Aracnido";
+            planta3CrecimientoGrande=0;
+            planta3CrecimientoMediano=1;
+            planta3TiempoRiego= 20;
+            planta3Vida = 20;
+            planta3BichoAtaque= "Pulgon";
+            
+            planta4Precio=200;
+            planta4TiempoDeVida=120;
+            planta4CrecimientoGrande=70;
+            planta4CrecimientoMediano=50;
+            planta4TiempoRiego= 30;
+            planta4Vida = 25;
+            planta4BichoAtaque= "Hormiga";
+            planta4BichoAtaque2= "Pulgon";
+            
+            
+            
+            pulgonDPS = 1;
+            hormigaDPS = 1;
+            //tiempo de juego
+            
+            //////
+            menuSalido=false;
+            altura=$("body").height();
+            anchura=$("body").width();
+            anchuraMenu=$("#menu").width();
+            $("#menuBichos").hide();
+            $("#menu").hide();
+            $("#pestana").css("left",anchuraMenu+"px");
+            $("#mensaje").css("top",(altura/13)+"px");
+            $("#gato").css("top",((altura+(altura/5))/2)+"px");
+            $("#poda").css("top",((altura+(altura/5))/2)+"px");
+            alturaTerreno=$("#terreno").height();
+            $(".alertaAgua").hide();
+            $(".alertaBicho").hide();
+            $("#papelera").css("left",(anchuraMenu-50)+"px");
+            $("#terreno").css("top",altura-alturaTerreno+"px");
+            $("#menu").hide();
+                        $("#pestana").hide();
+                        $("#poda").hide();
+                        $("#regadera").hide();
+                        $(".circle").hide();
+                        $("#mensaje").html("<b>Para pasarte este nivel<br> has de conseguir 1500€ para pagar la matrícula de la gatouniversidad.<br>Dale al go!<br><p id='go'>GO -></p></b>");
+                        $("#go").click(function(){
+                            $("#pestana").show();
+                            $("#poda").show();
+                            $("#regadera").show();
+                            $(".circle").show();
+                            empezarJuego();
+                        });
+            $("#pestana").click(function(){
+                if(menuSalido){
+                    $("#pestana").css("left",anchuraMenu+"px");
+                    $("#menu").hide();
+                    menuSalido=false;
+                } else{
+                    $("#pestana").css("left","0px");
+                    $("#menu").show();
+                    menuSalido=true;
+                }
+            });
+            $("#submenu2").click(function(){
+                $("#menuPlantas").hide();
+                $("#menuBichos").show();
+                $(this).css("border","1px solid black");
+                $("#submenu1").css("border","none");
+            });
+            $("#submenu1").click(function(){
+                $("#menuPlantas").show();
+                $("#menuBichos").hide();
+                $(this).css("border","1px solid black");
+                $("#submenu2").css("border","none");
+            });
+            /////////////////////////////BOLEANOS
+            mostrar=false;
+            mostrar2=false;
+            plantar=false;
+            regar=false;
+            podar=false;
+            estadisticas=true;
+            ponerBicho=false;
+            tipoPlanta=0;
+            tipoBicho=0;
+            cursorSobreNum=0;
+            cursorSobreVal=0;
+            precioPlantas=[0,planta1Precio, planta2Precio, planta3Precio, planta4Precio];
+            bicho1=0;
+            bicho2=0;
+            
+            $(".casillas").val(0);
+            //////////////////////////////
+            $(".casillas").click(function(){
+                if(plantar){
+                    //if($(this).val()==-1)
+                        //alert('Ta muerta');
+                    /*else*/ if($(this).val()!=0 && $(this).val()!=-1){
+                        //alert('ya plantado');
+                        plantar=false;
+                        regar=false;
+                        estadisticas=true;
+                        $("body").css("cursor","help");
+                    }else{
+                        if(precioPlantas[tipoPlanta]<=dinero){
+                            dinero-=precioPlantas[tipoPlanta];
+                            $("#dinero").html(dinero+"€");
+                            $(this).val(tipoPlanta);
+                            plantar=false;
+                            estadisticas=true;
+                            $("body").css("cursor","help");
+                            $(this).html("<img class='posicionP' src='flower.gif'>");
+                            var iden=$(this).attr('id');
+                            num=iden.split("-");
+                            compraPlanta(tipoPlanta, num[1]);
+                        }else{
+                        }
+                    }       
+                }else if(regar){
+                    var iden=$(this).attr('id');
+                    num=iden.split("-");
+                    riega(num[1]);
+                    $("#alerta"+num[1]).hide();
+                }else if(estadisticas){
+                }else if(ponerBicho){
+                    ////////poner esto por cada tipo de bicho
+                    if(tipoBicho=="Mariquita"){
+                        ponerBicho=false;
+                        estadisticas=true;
+                        $("body").css("cursor","help");
+                        bicho1--;
+                        $("#numBicho1").html(bicho1);
+                        var iden=$(this).attr('id');
+                        num=iden.split("-");
+                        defiendeAtaque(tipoBicho, num[1]);
+                    }
+                     if(tipoBicho=="Aracnido"){
+                        ponerBicho=false;
+                        estadisticas=true;
+                        $("body").css("cursor","help");
+                        bicho2--;
+                        $("#numBicho2").html(bicho2);
+                        var iden=$(this).attr('id');
+                        num=iden.split("-");
+                        defiendeAtaque(tipoBicho, num[1]);
+                    }
+                }else if(podar){
+                    $("#poda").show();
+                    if($(this).val()!=0){
+                    if($(this).val()==-1){
+                    $(this).val(0);
+                    $(this).html("");
+                    $("body").css("cursor","help");
+                    podar=false;
+                    estadisticas=true;
+                        $(this).html("");
+                    var iden=$(this).attr('id');
+                    num=iden.split("-");
+                    }else{
+                        var iden=$(this).attr('id');
+                        num=iden.split("-");
+                        cosechaDineroyBichos(num[1]);
+                        $(this).val(0);
+                        $(this).html("");
+                        $("#alerta"+num[1]).hide();
+                        $("#alertaB"+num[1]).hide();
+                        $("body").css("cursor","help");
+                        podar=false;
+                        estadisticas=true;
+                    }
+                    }
+                }
+            });
+            
+            $("#regadera").click(function(){
+                plantar=false;
+                regar=true;
+                podar=false;
+                ponerBicho=false;
+                estadisticas=false;
+                $("body").css("cursor","url(regadera.png), auto");
+                $("#regadera").hide();
+                $("#poda").show();
+            });
+            
+            $(".casillas").hover(function(){    
+                                                cursorSobreVal=$(this).val();
+                                                iden=$(this).attr('id');
+                                                num=iden.split("-");
+                                                cursorSobreNum=num[1];
+                                                mostrar=true;
+                                                mostrar2=false;
+                                           },
+                                 function(){
+                                            
+                                            mostrar=false;
+                                           });
+            
+            $("#papelera").click(function(){
+                plantar=false;
+                regar=false;
+                ponerBicho=false;
+                podar=false;
+                estadisticas=true;
+                $("body").css("cursor","help");
+                $("#regadera").show();
+                $("#poda").show();
+            });
+            
+            $("#poda").click(function(){
+                podar=true;
+                plantar=false;
+                regar=false;
+                ponerBicho=false;
+                estadisticas=false;
+                $("body").css("cursor","url(podadora.png), auto");
+                $("#regadera").show();
+                $("#poda").hide();
+            });
+            
+            $("#planta1").click(function(){
+                plantar=true;
+                podar=false;
+                regar=false;
+                ponerBicho=false;
+                estadisticas=false;
+                $("body").css("cursor","url(semilla1.png), auto");
+                tipoPlanta=1;
+                $("#regadera").show();
+                $("#poda").show();
+            });
+            
+            $("#planta2").click(function(){
+                plantar=true;
+                podar=false;
+                regar=false;
+                ponerBicho=false;
+                estadisticas=false;
+                $("body").css("cursor","url(semilla2.png), auto");
+                tipoPlanta=2;
+                $("#regadera").show();
+                $("#poda").show();
+            });
+            $("#planta3").click(function(){
+                plantar=true;
+                podar=false;
+                regar=false;
+                ponerBicho=false;
+                estadisticas=false;
+                $("body").css("cursor","url(semilla2.png), auto");
+                tipoPlanta=3;
+                $("#regadera").show();
+                $("#poda").show();
+            });
+            $("#planta4").click(function(){
+                plantar=true;
+                podar=false;
+                regar=false;
+                ponerBicho=false;
+                estadisticas=false;
+                $("body").css("cursor","url(semilla1.png), auto");
+                tipoPlanta=4;
+                $("#regadera").show();
+                $("#poda").show();
+            });
+            
+            $("#bicho1").click(function(){
+                $("#regadera").show();
+                $("#poda").show();
+                if(bicho1>0){
+                    plantar=false;
+                    podar=false;
+                    regar=false;
+                    estadisticas=false;
+                    ponerBicho=true;
+                    $("body").css("cursor","all-scroll");
+                    tipoBicho="Mariquita";
+                }else{
+                }
+            });
+            
+            $("#bicho2").click(function(){
+                $("#regadera").show();
+                $("#poda").show();
+                if(bicho2>0){
+                    plantar=false;
+                    podar=false;
+                    regar=false;
+                    estadisticas=false;
+                    ponerBicho=true;
+                    $("body").css("cursor","all-scroll");
+                    tipoBicho="Aracnido";
+                }else{
+                }
+            });
+            $("#gato").click(function(){
+                mostrar2=true;
+                
+                $("#mensaje").html("¿Quieres reiniciar?<br><p id='reiniciar'>SI</p><p id='noReiniciar'>NO</p>");
+                    $("#reiniciar").click(function(){
+                        location.reload();
+                    });
+                    $("#noReiniciar").click(function(){
+                        
+                        mostrar2=false;
+                });
+                
+            });
+            
+            
+            
+        });tiempo=0;
+        tiempo2=0;
+            
+
+            //plantas en el tablero
+            plantas = new Array();
+            
+            plantas[0]=0;
+            plantas[1]=0;
+            plantas[2]=0;
+            plantas[3]=0;
+            plantas[4]=0;
+            plantas[5]=0;
+            
+            dinero=150;
+            
+            
+            
+             function empezarJuego(){
+            buclePrincipal=setInterval(function(){
+                 $("#dinero").html(dinero+"€");
+                compruebaCrecimiento();
+                compruebaRiego();
+                comprobarEdad();
+                compruebaWin();
+                if(mostrar){
+                    mostrarDatos(cursorSobreVal,cursorSobreNum);
+                }else if(mostrar2){
+                    
+                }else{
+                    $("#mensaje").html("");
+                }
+            }, 10);
+            timer=setInterval(function(){
+                tiempo++;
+                dañaPlantas();
+                
+                aumentaContadores();
+                
+            },1000);
+        
+             timer=setInterval(function(){
+                tiempo2++;
+                $("#dia").html(tiempo2);
+                
+            },60000); 
+             }
+            function nuevaPlanta(numMaceta, tipoPlanta, tiempoDeVida,bichoQueDa, tiempoDeRiego,vida)
+            {
+                plantas[numMaceta]=new Array();
+                plantas[numMaceta][0]=tipoPlanta;
+                plantas[numMaceta][1]=tiempoDeVida;
+                plantas[numMaceta][2]=tiempo;
+                plantas[numMaceta][3]=0;
+                plantas[numMaceta][4]=0;
+                plantas[numMaceta][5]=bichoQueDa;
+                plantas[numMaceta][6]=0;
+                plantas[numMaceta][7]=false;
+                plantas[numMaceta][8]=-1;
+                plantas[numMaceta][9]=-1;
+                plantas[numMaceta][10]= tiempo+tiempoDeRiego;
+                plantas[numMaceta][11]= vida;
+                plantas[numMaceta][12]= 0;
+                plantas[numMaceta][13]= 0;
+            }
+            
+            function compraPlanta(tipoPlanta, maceta)
+            {
+                switch(tipoPlanta)
+                {
+                    case 1:
+                        nuevaPlanta(maceta, tipoPlanta, planta1TiempoDeVida, -1, planta1TiempoRiego,  planta1Vida);
+                        break;
+                    case 2:
+                        nuevaPlanta(maceta, tipoPlanta, planta2TiempoDeVida, plata2Bicho, planta2TiempoRiego,  planta2Vida);
+                        break;
+                    case 3:
+                         nuevaPlanta(maceta, tipoPlanta, planta3TiempoDeVida, plata3Bicho, planta3TiempoRiego,  planta3Vida);
+                        break;
+                    case 4:
+                         nuevaPlanta(maceta, tipoPlanta, planta4TiempoDeVida, -1, planta4TiempoRiego,  planta4Vida);
+                        break;
+                }
+            }
+            
+           function empiezaAtaque(maceta, tipoDeBicho, DPS)
+            {
+                $("#alertaB"+maceta).show();
+                plantas[maceta][7]=true;
+                plantas[maceta][8]=tipoDeBicho;
+                plantas[maceta][9]=DPS;
+            }
+            
+            function vivo(maceta)
+            {
+                if(plantas[maceta][3]==-1)
+                {
+                    return false;
+                }
+                else {return true;}
+            }
+            
+            function maduro(maceta)
+            {
+                if(plantas[maceta][3]==2)
+                {
+                    return true;
+                }
+                else {return false;}
+            }
+            
+            
+            function compruebaCrecimiento()
+            {
+                for(i=0; i< plantas.length; i++)
+                {                    
+                        if(plantas[i][3] <1&&tiempo-plantas[i][2] >= plantas[i][1]/5)
+                        {
+                            plantas[i][3]=1;
+                            switch(plantas[i][0]){
+                                case 1:
+                                    $("#p-"+i).html("<img class='posicionP'src='mediaFlor.gif'>");
+                                    break;
+                                case 2:
+                                    $("#p-"+i).html("<img class='posicionP'src='bugMedia.gif'>");
+                                    break;
+                                case 3:
+                                    $("#p-"+i).html("<img class='posicionP'src='bugMedia.gif'>");
+                                    break;
+                                 case 4:
+                                    $("#p-"+i).html("<img class='posicionP'src='mediaFlor.gif'>");
+                                    break;
+                                    
+                                                }
+                        }
+                        if(plantas[i][3]<2&&tiempo-plantas[i][2] >= plantas[i][1]/2)
+                        {
+                           plantas[i][3]=2;
+                            switch(plantas[i][0]){
+                                case 1:
+                                    $("#p-"+i).html("<img class='posicionP'src='plantaFinal1.gif'>");
+                                    break;
+                                case 2:
+                                    $("#p-"+i).html("<img class='posicionP'src='bugGranda.gif'>");
+                                    break;
+                                case 3:
+                                    $("#p-"+i).html("<img class='posicionP'src='flower_spider1.png'>");
+                                    break;
+                                case 4:
+                                    $("#p-"+i).html("<img class='posicionP'src='flower_2.png'>");
+                                    break;
+                                                }
+                        }
+                        if(plantas[i][3]<3&&tiempo - plantas[i][2] >= plantas[i][1]*0.8)
+                        {
+                            plantas[i][3]=3;
+                        }
+                }
+            }
+            
+            function crecimientoGrande(maceta)
+            {
+                switch(plantas[maceta][0])
+                {
+                    case 1: 
+                    {
+                    plantas[maceta][4]+=planta1CrecimientoGrande;
+                    break;
+                    }
+                    case 2: 
+                    {
+                    plantas[maceta][6]+=planta2CrecimientoGrande;
+                    break;
+                    }
+                    case 3: 
+                    {
+                    plantas[maceta][6]+=planta3CrecimientoGrande;
+                    break;
+                    }
+                    case 4: 
+                    {
+                    plantas[maceta][4]+=planta4CrecimientoGrande;
+                    break;
+                    }
+                    
+                }
+            }
+            
+            function crecimientoMediano(maceta)
+            {
+                switch(plantas[maceta][0])
+                {
+                    case 1: 
+                    {
+                    plantas[maceta][4]+=planta1CrecimientoMediano;
+                    break;
+                    }
+                    case 2: 
+                    {
+                    plantas[maceta][6]+=planta2CrecimientoMediano;
+                    break;
+                    }
+                    case 3: 
+                    {
+                    plantas[maceta][6]+=planta3CrecimientoMediano;
+                    break;
+                    }
+                    case 4: 
+                    {
+                    plantas[maceta][4]+=planta4CrecimientoMediano;
+                    break;
+                    }
+                }
+            }
+            
+            function dañaPlantas()
+            {
+                for(i=0; i< plantas.length; i++)
+                {
+                    if(vivo(i) && plantas[i][7])
+                    {
+                       plantas[i][11]-=plantas[i][9];
+                    }
+                }
+            }
+            
+            function aumentaContadores()
+            {
+                for(i=0; i< plantas.length; i++)
+                {
+                    if(vivo(i) && plantas[i][3]>=1 && plantas[i][3]<=3)
+                    {
+                        plantas[i][12]++;
+                        plantas[i][13]++;
+                    }
+                    if(plantas[i][3]==1 && plantas[i][13] >= (plantas[i][1]*0.3)/5 )
+                    {
+                        crecimientoGrande(i);
+                        plantas[i][13]=0;
+                    }
+
+                    else if(plantas[i][3]>=2 && plantas[i][13] >= (plantas[i][1]/4)/5)
+                    {
+                        crecimientoMediano(i);
+                        plantas[i][13]=0;
+                    }
+                    
+                    if(plantas[i][3]>=1)
+                    {
+                        if(plantas[i][12] >= (plantas[i][1]*0.8)/(plantas[i][1]/15))
+                        {
+                            plantas[i][12]=0;
+                            decideAtaque(i);
+
+                        }
+                    }
+                }
+            }
+            
+            function decideAtaque(maceta)
+            {
+                switch(plantas[maceta][0])
+                {
+                    case 1:
+                        empiezaAtaque(maceta, planta1BichoAtaque, consultaDPS(planta1BichoAtaque));
+                        break;
+                    case 3:
+                        empiezaAtaque(maceta, planta3BichoAtaque, consultaDPS(planta3BichoAtaque));
+                        break;
+                    case 4:
+                        {
+                        if(Math.floor(Math.random() * 2)<=0.5)
+                        {
+                            empiezaAtaque(maceta, planta4BichoAtaque, consultaDPS(planta4BichoAtaque));
+                        }
+                        else{empiezaAtaque(maceta, planta4BichoAtaque2, consultaDPS(planta4BichoAtaque2));}
+                        break;
+                        }
+                        
+                }
+            }
+            
+            
+            function eliminaPlanta(numMaceta)
+            {
+                plantas[numMaceta]= 0;
+                $("#alerta"+numMaceta).hide();
+                $("#alertaB"+numMaceta).hide();
+                $("#p-"+numMaceta).html("<img class='posicionP' src='muerte.gif'>");
+                $("#p-"+numMaceta).val(-1);
+            }
+             function cosechaDineroyBichos(numMaceta){
+                if (plantas[numMaceta][4] == 0){
+                    sumaBicho(plantas[numMaceta][5], plantas[numMaceta][6]);
+                    //añade bichos
+                }
+                else {
+                    dinero = dinero + plantas[numMaceta][4];
+                }
+                    eliminaPlanta(numMaceta);
+                 // la podemos eliminar aqui o eliminar fuera de la funcion
+            }
+            
+            function hayPlanta(numMaceta){
+                if (plantas[numMaceta][0] == null){
+                    return false;
+                }
+                return true;
+            }
+            
+            function compruebaRiego(){
+                for(i=0; i < plantas.length; i++) {
+                    if (plantas[i][10] - tiempo == 10){
+                        $("#alerta"+i).show();
+                    } 
+                    if (tiempo>=plantas[i][10]){
+                        eliminaPlanta(i);
+                        //¿llamamos a eliminar planta?
+                    }
+                }
+                
+            }
+            
+            function riega(maceta)
+            {
+                if(plantas[maceta] !=0)
+                {
+                    plantas[maceta][10]=tiempo+consultaTiempoRiego(plantas[maceta][0]);
+                }
+            }
+            
+            function sumaBicho(bicho, cantidad)
+            {
+                switch(bicho)
+                {
+                    case "Mariquita":
+                        bicho1+=cantidad;
+                        $("#numBicho1").html(bicho1);
+                        break;
+                    case "Aracnido":
+                        bicho2+=cantidad;
+                        $("#numBicho2").html(bicho2);
+                        break;
+                }
+            }
+            function defiendeAtaque(bichoDefensor, maceta)
+            {
+                
+                if(plantas[maceta][7])
+                {
+                    if(resuelveAtaques(plantas[maceta][8], bichoDefensor))
+                    {
+                        plantas[maceta][7]= false;
+                        plantas[maceta][8]= -1;
+                        plantas[maceta][9]= -1;
+                        $("#alertaB"+maceta).hide();
+                        //cosas de sprites de los atacantes
+                    }
+                }
+            }
+            
+            function resuelveAtaques(bichoAtacante, bichoDefensor)
+            {
+                switch(bichoDefensor)
+                {
+                    case "Mariquita":
+                    {
+                        if(bichoAtacante=="Pulgon")
+                        {
+                            return true;
+                            break;
+                        }
+                    }
+                    case "Aracnido":
+                    {
+                       if(bichoAtacante=="Hormiga")
+                        {
+                            return true;
+                            break;
+                        } 
+                    }
+                        
+                }
+                return false;
+            }
+            
+            function comprobarEdad()
+            {
+                for(i=0; i< plantas.length; i++)
+                {
+                    if(vivo(i) && tiempo-plantas[i][2]>= plantas[i][1])
+                    {
+                        eliminaPlanta(i);
+                    }
+                    
+                    if( plantas[i][11]<=0)
+                    {
+                        eliminaPlanta(i);
+                    }
+                }
+            }
+        
+            function consultaTiempoRiego(tipoPlanta)
+            {
+                switch(tipoPlanta)
+                {
+                    case 1:
+                        return planta1TiempoRiego;
+                        break;
+                    case 2:
+                        return planta2TiempoRiego;
+                        break;
+                    case 3:
+                        return planta3TiempoRiego;
+                        break;
+                    case 4:
+                        return planta4TiempoRiego;
+                        break;
+                }
+            }
+            function consultaDPS(tipoBicho)
+            {
+                switch(tipoBicho)
+                {
+                    case "Pulgon":
+                        return pulgonDPS;
+                        break;
+                    case "Hormiga":
+                        return hormigaDPS;
+                        break;
+                }
+            }/////////
+        /////////////
+        //////////////////////
+        ///////////////////////
+        ////////////////////////////
+        ////////////////////////
+        
+            function compruebaWin(){//////////////////////////
+                if(dinero>dineroNecesario){
+                    clearInterval(buclePrincipal);
+                    setTimeout(function(){
+                        $("#mensaje").html("Muy bien plantado,<br>Como deje a tu madre ayer<br>¿Te atreves con el siguiente?<p id='siguiente'>Next-></p>");
+                        $("#menu").remove();
+                        $("#pestana").remove();
+                        $("#poda").remove();
+                        $("#regadera").remove();
+                        $(".circle").remove();
+                        $("#siguiente").click(function(){
+                                            location.href="nivel2.html";
+                                        });
+                        clearInterval(buclePrincipal);
+                    clearInterval(timer1);
+                    clearInterval(timer2);
+                    },20);
+                }
+                if(tiempo>tiempoMaximo){
+                    mensaje="ohhh, Has perdido";
+                    clearInterval(buclePrincipal);
+                    clearInterval(timer1);
+                    clearInterval(timer2);
+                    setTimeout(function(){
+                        $("#menu").remove();
+                        $("#pestana").remove();
+                        $("#poda").remove();
+                        $("#regadera").remove();
+                        $(".circle").remove();
+                        $("#mensaje").html(mensaje);
+                        setTimeout(function(){
+                            mensaje+=".";
+                            $("#mensaje").html(mensaje);
+                                setTimeout(function(){
+                                mensaje+=".";
+                            $("#mensaje").html(mensaje);
+                                setTimeout(function(){
+                                    mensaje+=".";
+                                    $("#mensaje").html(mensaje);
+                                    setTimeout(function(){
+                                        mensaje+=".";
+                                        $("#mensaje").html(mensaje);
+                                        setTimeout(function(){
+                                        mensaje+="<br>Mi abuela lo habria hecho mejor...<br>¿Quieres volver a intentarlo?<br><p id='reiniciar'>SI</p><p id='noReiniciar'>NO</p>";
+                                        $("#mensaje").html(mensaje);
+                                        
+                                        $("#reiniciar").click(function(){
+                                            location.reload();
+                                        });
+                                        $("#noReiniciar").click(function(){
+                                            //location.href="nivel2.html";
+                        
+                });
+                                    },500);
+                                    },500);
+                                },500);
+                            },500);
+                        },500);
+                        
+                    },20);
+                }
+            }/////////////
+        //////////////////
+        /////////////////////
+        ///////////////////////
+            function mostrarDatos(plantada,num){
+                if(plantas[num]==0&&plantada!=0)
+                     $("#mensaje").html("Has matado la planta...<br>Hoy no comeran tus hijos...");
+                else if(plantada!=0){   
+                    
+                    mensaje="Vida: "+plantas[num][11]+"<br>";  
+                    switch(plantas[num][3]){
+                        case 0:
+                            mensaje+="Estado: Recien plantado";
+                            break;
+                        case 1:
+                            mensaje+="Estado: Primeras hojitas";
+                            break;
+                        case 2:
+                            mensaje+="Estado: To fuerte";
+                            break;
+                        case 3:
+                            mensaje+="Estado: To viejo";
+                            break;
+                    }
+                    mensaje+="<br>";
+                    if(plantas[num][5]==-1){
+                        mensaje+="Cosecha: "+plantas[num][4]+"$";
+                    }else
+                        mensaje+="Cosecha: "+plantas[num][6]+" "+plantas[num][5];
+                    mensaje+="<br>";
+                    var agua=plantas[num][10]-tiempo;
+                    mensaje+="Agua: "+agua+"<br>";
+                    if(plantas[num][7])
+                        mensaje+="La planta esta siendo atacada por: "+plantas[num][8];
+                    $("#mensaje").html(mensaje);
+                }
+            }
+        
+    </script>
+    <script type="text/javascript">
+		$(document).ready(function(){
+			    altura= $("body").height();
+                anchura= $("body").width();
+				animacionMoscas();
+		});
+		function animacionMoscas(){ 
+			//Crear los cuadraditos
+			s1 = setInterval(function(){
+                dir1=getRndInteger(0,3);
+					$("#div1").remove();
+				var txt1 = "<div id='div1' style= 'position:absolute;margin-left:"+getRndInteger(0,anchura-50) +";margin-top:"+getRndInteger(altura/2-50,altura/2+50)+"; width:4;height:4;background-color:gray'></div>";
+				$("body").append(txt1);
+				var div = $("#div1");
+		         div.animate({top:'200px',left:'20px'}, 4000);
+			},4000);
+            setTimeout(function(){s2 = setInterval(function(){
+                dir2=getRndInteger(0,3);
+					$("#div2").remove();
+				var txt2 = "<div id='div2' style= 'position:absolute;margin-left:"+getRndInteger(0,anchura-50) +";margin-top:"+getRndInteger(altura/2-50,altura/2+50)+"; width:4;height:4;background-color:yellow'></div>";
+				$("body").append(txt2);
+				var div = $("#div2");
+		         div.animate({top:'200px',left:'20px'}, 3000);
+			},3000);
+            },200);
+            setTimeout(function(){s3 = setInterval(function(){
+                dir3=getRndInteger(0,3);
+					$("#div3").remove();
+				var txt3 = "<div id='div3' style= 'position:absolute;margin-left:"+getRndInteger(0,anchura-50)+";margin-top:"+getRndInteger(altura/2-50,altura/2+50)+"; width:4;height:4;background-color:gray'></div>";
+				$("body").append(txt3);
+				var div = $("#div3");
+		         div.animate({top:'200px',left:'20px'}, 3500);
+			},3500);
+            },400);
+            setTimeout(function(){s4 = setInterval(function(){
+                dir4=getRndInteger(0,3);
+					$("#div4").remove();
+				var txt4 = "<div id='div4' style= 'position:absolute;margin-left:"+getRndInteger(0,anchura-50) +";margin-top:"+getRndInteger(altura/2-50,altura/2+50)+"; width:4;height:4;background-color:gray'></div>";
+				$("body").append(txt4);
+				var div = $("#div4");
+		         div.animate({top:'200px',left:'20px'}, 3000);
+			},3000);
+            },600);
+            s5 = setInterval(function(){
+                dir5=getRndInteger(0,3);
+					$("#div5").remove();
+				var txt5 = "<div id='div5' style= 'position:absolute;margin-left:"+getRndInteger(0,anchura-250) +";margin-top:"+getRndInteger(altura/2-50,altura/2+50)+"; width:4;height:4;background-color:gray'></div>";
+				$("body").append(txt5);
+				var div = $("#div5");
+		         div.animate({top:'20px',left:'200px'}, 3000);
+			},3000);
+            setTimeout(function(){s6 = setInterval(function(){
+                dir6=getRndInteger(0,3);
+					$("#div6").remove();
+				var txt6 = "<div id='div6' style= 'position:absolute;margin-left:"+getRndInteger(0,anchura-250) +";margin-top:"+getRndInteger(altura/2-50,altura/2+50)+"; width:4;height:4;background-color:yellow'></div>";
+				$("body").append(txt6);
+				var div = $("#div6");
+		         div.animate({top:'200px',left:'200px'}, 4800);
+			},4800);
+            },200);
+            
+		}
+		function getRndInteger(min, max) {
+		    return Math.floor(Math.random() * (max - min) ) + min;
+		}
+	</script>
+    </head>
+    <body>
+        
+        <div id="row">
+            <div id="gatoZone" class=" col-md-3"><div id="mensaje"></div></div>
+            <div  class=" col-md-6">
+                
+                <div id="info">
+                    <div id="dinero">$0</div>
+                    
+                    <div id="dia">0</div>
+                    
+                    <div id='ciclo'>
+                        <div class="main">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="terreno" >
+                    <div class="row">
+                        <div id='p-0' class="col-md-offset-1 col-md-2 casillas"></div>
+                        <div id='p-1' class=" col-md-2 casillas"></div>
+                        <div id='p-2' class=" col-md-2 casillas"></div>
+                    </div>
+                    <div class="row">
+                        <div class="alertas col-md-offset-1 col-md-2">
+                            <div class="row">
+                                <div id="alertaB0" class="alertaBicho col-md-6"></div>
+                                <div id="alerta0" class="alertaAgua col-md-6"></div>
+                            </div>
+                        </div>
+                        <div class="alertas col-md-offset-1 col-md-2">
+                            <div class="row">
+                                <div id="alertaB1"class="alertaBicho col-md-6"></div>
+                                <div id="alerta1" class="alertaAgua col-md-6"></div>
+                            </div>
+                        </div>
+                        <div class="alertas col-md-offset-1 col-md-2">
+                            <div class="row">
+                                <div id="alertaB2"class="alertaBicho col-md-6"></div>
+                                <div id="alerta2" class="alertaAgua col-md-6"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                       
+                    
+                    
+                        
+                       
+                        
+                    
+                    <div class="row">
+                        <div id='p-4' class="col-md-offset-1 col-md-2 casillas"></div>
+                        <div id='p-5' class=" col-md-2 casillas"></div>
+                         <div id='p-3' class=" col-md-2 casillas"></div>
+                    </div>
+                    <div class="row">
+                        <div class="alertas col-md-offset-1 col-md-2">
+                            <div class="row">
+                                <div id="alertaB4"class="alertaBicho col-md-6"></div>
+                                <div id="alerta4" class="alertaAgua col-md-6"></div>
+                            </div>
+                        </div>
+                        <div class="alertas col-md-offset-1 col-md-2">
+                            <div class="row">
+                                <div id="alertaB5"class="alertaBicho col-md-6"></div>
+                                <div id="alerta5" class="alertaAgua col-md-6"></div>
+                            </div>
+                        </div>
+                        <div class="alertas col-md-offset-1 col-md-2">
+                            <div class="row">
+                                <div id="alertaB3"class="alertaBicho col-md-6"></div>
+                                <div id="alerta3" class="alertaAgua col-md-6"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="menuZone" class=" col-md-3">
+                
+                    <div id="pestana">
+                            M<br>E<br>N<br>U
+                    </div>
+                    <div id="menu">
+                        <div id="submenu"><div id="submenu1">plantas</div><div id="submenu2">bichos</div></div>
+                        <div id="menuPlantas">
+                            <div id="planta1" class="plantas"><img src="planta1.png">50€</div>
+                            <div id="planta2" class="plantas"><img src="planta2.png">50€</div>
+                            <div id="planta3" class="plantas"><img src="flower_spider1.png">100€</div>
+                            <div id="planta4" class="plantas"><img src="flower_2.png">200€</div>
+                        </div>
+                        <div id="menuBichos">
+                            <div id="bicho1" class="plantas"><img src="mariquita.png"><div id="numBicho1">0</div></div>
+                            <div id="bicho2" class="plantas"><img src="spider.png"><div id="numBicho2">0</div></div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div id="papelera"><img src="bin.png"></div>
+        
+        <div id="regadera"><img class="imgHuerto" src="regadera.png"></div>
+        <div id="poda"><img src="podadora.png"></div>
+        <div id="gato"><img class="imgHuerto"src="talking_cat.gif"></div>
+    </body>
+</html>
